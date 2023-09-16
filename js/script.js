@@ -1,13 +1,13 @@
 let questions = [
-  { image: "../img/dobermango.jpg", answer: "доберманго" },
-  { image: "../img/alpapka.jpg", answer: "альпапка" },
-  { image: "../img/bekon.jpg", answer: "беконь" },
-  { image: "../img/eskimops.jpg", answer: "эскимопс" },
-  { image: "../img/kolbasulya.jpg", answer: "колбасуля" },
-  { image: "../img/kotleta.jpg", answer: "котлета" },
-  { image: "../img/somolet.jpg", answer: "сомолет" },
-  { image: "../img/tigrusha.jpg", answer: "тигруша" },
-  { image: "../img/tiramisu.jpg", answer: "тирамисуслик" },
+  { image: "./img/dobermango.jpg", answer: "доберманго" },
+  { image: "./img/alpapka.jpg", answer: "альпапка" },
+  { image: "./img/bekon.jpg", answer: "беконь" },
+  { image: "./img/eskimops.jpg", answer: "эскимопс" },
+  { image: "./img/kolbasulya.jpg", answer: "колбасуля" },
+  { image: "./img/kotleta.jpg", answer: "котлета" },
+  { image: "./img/somolet.jpg", answer: "сомолет" },
+  { image: "./img/tigrusha.jpg", answer: "тигруша" },
+  { image: "./img/tiramisu.jpg", answer: "тирамисуслик" },
 ];
 
 let currentQuestionIndex = 0;
