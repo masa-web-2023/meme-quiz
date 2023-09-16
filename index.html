@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>МЕМАСИКИ</title>
+    <link rel="stylesheet" href="./vendor/normalize.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div id="startScreen">
+      Кто ты, путник: <input aria-label="Close" type="text" id="username" />
+      <button onclick="startQuiz()">Начать викторину</button>
+    </div>
+
+    <div id="quiz">
+      <h1>Викторина</h1>
+      <p>Текущий счет: <span id="score">0</span></p>
+      <p>Попытки: <span id="attempts">3</span></p>
+      <img id="questionImage" src="" alt="Вопрос" width="300" />
+      <input aria-label="Close" type="text" id="answerInput" />
+      <button onclick="checkAnswer()">Ответить</button>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
