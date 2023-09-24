@@ -5,7 +5,7 @@ let questions = [
   { image: "./img/eskimops.jpg", answer: "эскимопс" },
   { image: "./img/kolbasulya.jpg", answer: "колбасуля" },
   { image: "./img/kotleta.jpg", answer: "котлета" },
-  { image: "./img/somolet.jpg", answer: "сомолет" },
+  { image: "./img/somolet.jpg", answer: "сомолет" && "сомолёт" },
   { image: "./img/tigrusha.jpg", answer: "тигруша" },
   { image: "./img/tiramisu.jpg", answer: "тирамисуслик" },
 ];
@@ -14,8 +14,17 @@ let currentQuestionIndex = 0;
 let score = 0;
 let attempts = 3;
 
+function resetQuiz() {
+  currentQuestionIndex = 0;
+  score = 0;
+  attempts = 3;
+  document.getElementById("score").innerText = score;
+  document.getElementById("attempts").innerText = attempts;
+}
+
 function startQuiz() {
   document.getElementById("startScreen").style.display = "none";
+  document.querySelector(".footer").style.display = "none";
   document.getElementById("quiz").style.display = "block";
   showQuestion();
   document
@@ -35,11 +44,7 @@ function showQuestion() {
     alert(`Викторина окончена! Ваш счет: ${score}`);
     document.getElementById("quiz").style.display = "none";
     document.getElementById("startScreen").style.display = "block";
-    currentQuestionIndex = 0;
-    score = 0;
-    attempts = 3;
-    document.getElementById("score").innerText = score;
-    document.getElementById("attempts").innerText = attempts;
+    resetQuiz();
   }
 }
 
@@ -49,24 +54,20 @@ function checkAnswer() {
     .value.trim()
     .toLowerCase();
   if (userAnswer === questions[currentQuestionIndex].answer) {
-    score++;
+    score += 1;
     document.getElementById("score").innerText = score;
-    attempts = 3;
+    attempts += 1;
     document.getElementById("attempts").innerText = attempts;
-    currentQuestionIndex++;
+    currentQuestionIndex += 1;
     document.getElementById("answerInput").value = "";
     showQuestion();
   } else {
-    attempts--;
+    attempts -= 1;
     if (attempts <= 0) {
-      alert("К сожалению, вы проиграли. Попробуйте снова!");
+      alert(`Викторина окончена! Ваш счет: ${score}`);
       document.getElementById("quiz").style.display = "none";
       document.getElementById("startScreen").style.display = "block";
-      currentQuestionIndex = 0;
-      score = 0;
-      attempts = 3;
-      document.getElementById("score").innerText = score;
-      document.getElementById("attempts").innerText = attempts;
+      resetQuiz();
     } else {
       document.getElementById("attempts").innerText = attempts;
       document.getElementById("answerInput").value = "";

@@ -6,21 +6,49 @@
     <title>МЕМАСИКИ</title>
     <link rel="stylesheet" href="./vendor/normalize.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div id="startScreen">
-      Кто ты, путник: <input aria-label="Close" type="text" id="username" />
-      <button onclick="startQuiz()">Начать викторину</button>
-    </div>
-
-    <div id="quiz">
-      <h1>Викторина</h1>
-      <p>Текущий счет: <span id="score">0</span></p>
-      <p>Попытки: <span id="attempts">3</span></p>
-      <img id="questionImage" src="" alt="Вопрос" width="300" />
-      <input aria-label="Close" type="text" id="answerInput" />
-      <button onclick="checkAnswer()">Ответить</button>
-    </div>
+    <main class="main">
+      <div id="startScreen">
+        Кто ты, путник? <input aria-label="Close" type="text" id="username" />
+        <button onclick="startQuiz()">Начать викторину</button>
+      </div>
+      <div id="quiz">
+        <h1>Шлакоблокунь</h1>
+        <p>Текущий счет: <span id="score">0</span></p>
+        <p>Попытки: <span id="attempts">3</span></p>
+        <img id="questionImage" src="" alt="Вопрос" width="300" />
+        <input aria-label="Close" type="text" id="answerInput" />
+        <button onclick="checkAnswer()">Ответить</button>
+      </div>
+      <footer class="footer">
+        <div class="footer-description">
+          <h2 class="footer-heading">Описание игры:</h2>
+          <p class="footer-paragraph">
+            Каждый уровень&nbsp;&mdash; это картинка, на&nbsp;которой изображена
+            комбинация животного и&nbsp;предмета. Разгадай эти два слова,
+            объедини их&nbsp;в&nbsp;одно, и&nbsp;получи ответ! Для примера:
+            на&nbsp;картинке изображена комбинация из&nbsp;рыбы&nbsp;&mdash;
+            окуня и&nbsp;предмета&nbsp;&mdash; шлакоблока. Совместив эти два
+            слова и&nbsp;получается ответ &rsquo;Шлакоблокунь&rsquo;!
+          </p>
+        </div>
+        <div class="footer-img-container">
+          <img
+            class="footer-img"
+            src="./img/024_shlakoblokun.jpg"
+            alt="Изображение
+          шкакоблокуня"
+          />
+        </div>
+      </footer>
+    </main>
     <script src="./js/script.js"></script>
   </body>
 </html>
