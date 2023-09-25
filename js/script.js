@@ -36,13 +36,16 @@ function startQuiz() {
   document.querySelector(".footer").style.display = "none";
   document.getElementById("quiz").style.display = "flex";
   showQuestion();
-  document
-    .getElementById("answerInput")
-    .addEventListener("keydown", function (event) {
-      if (event.key === "Enter") {
-        checkAnswer();
-      }
-    });
+  let answerInput = document.getElementById("answerInput");
+
+  answerInput.removeEventListener("keydown", enterListener);
+  answerInput.addEventListener("keydown", enterListener);
+}
+
+function enterListener(event) {
+  if (event.key === "Enter") {
+    checkAnswer();
+  }
 }
 
 function showQuestion() {
