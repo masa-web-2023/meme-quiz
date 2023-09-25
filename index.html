@@ -16,16 +16,37 @@
   <body>
     <main class="main">
       <div id="startScreen">
-        Кто ты, путник? <input aria-label="Close" type="text" id="username" />
-        <button onclick="startQuiz()">Начать викторину</button>
+        <input
+          required
+          placeholder="Кто ты, путник?"
+          class="startScreen-input"
+          aria-label="Close"
+          type="text"
+          id="username"
+        />
+        <button class="startScreen-button" onclick="startQuiz()">
+          Начать викторину
+        </button>
       </div>
       <div id="quiz">
-        <h1>Шлакоблокунь</h1>
-        <p>Текущий счет: <span id="score">0</span></p>
-        <p>Попытки: <span id="attempts">3</span></p>
         <img id="questionImage" src="" alt="Вопрос" width="300" />
-        <input aria-label="Close" type="text" id="answerInput" />
-        <button onclick="checkAnswer()">Ответить</button>
+        <div class="quiz-input-container">
+          <input
+            required
+            placeholder="Введи свой ответ"
+            class="quiz-input"
+            aria-label="Close"
+            type="text"
+            id="answerInput"
+          />
+          <button class="quiz-unput-button" onclick="checkAnswer()">
+            Ответить
+          </button>
+        </div>
+        <div class="quiz-score">
+          <p>Текущий счет: <span id="score">0</span></p>
+          <p>Попытки: <span id="attempts">3</span></p>
+        </div>
       </div>
       <footer class="footer">
         <div class="footer-description">
@@ -36,13 +57,13 @@
             объедини их&nbsp;в&nbsp;одно, и&nbsp;получи ответ! Для примера:
             на&nbsp;картинке изображена комбинация из&nbsp;рыбы&nbsp;&mdash;
             окуня и&nbsp;предмета&nbsp;&mdash; шлакоблока. Совместив эти два
-            слова и&nbsp;получается ответ &rsquo;Шлакоблокунь&rsquo;!
+            слова и&nbsp;получается ответ &#171;Шлакоблокунь&#187;!
           </p>
         </div>
         <div class="footer-img-container">
           <img
             class="footer-img"
-            src="./img/024_shlakoblokun.jpg"
+            src="./img/024_shlakoblokun.png"
             alt="Изображение
           шкакоблокуня"
           />

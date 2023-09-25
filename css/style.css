@@ -7,6 +7,120 @@
 
 #quiz {
   display: none;
+  flex-direction: column;
+  margin: auto;
+  justify-items: center;
+}
+
+.quiz-input-container {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0;
+  justify-content: space-between;
+}
+
+.quiz-input {
+  border: 2px solid;
+  border-image: linear-gradient(45deg, yellow, wheat) 1;
+  margin: 0;
+  padding: 5px;
+  box-sizing: border-box;
+  background-color: wheat;
+  color: black;
+  &:focus {
+    border: none;
+  }
+}
+
+.quiz-unput-button {
+  margin: 0;
+  padding: 5px;
+  border: 2px solid;
+  box-sizing: border-box;
+  border-image: linear-gradient(45deg, wheat, yellow) 1;
+  transition: 0.5s ease;
+  &:hover {
+    border-image: linear-gradient(45deg, tomato, yellow) 1;
+  }
+}
+
+.shake {
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+#startScreen {
+  display: flex;
+  align-items: center;
+  margin: 20vh auto 0;
+}
+
+.startScreen-paragraph {
+  padding: 0;
+  margin: 0 10px;
+}
+
+.startScreen-input {
+  border: none;
+  background-color: wheat;
+  color: black;
+  padding: 5px;
+  &:focus {
+    border: none;
+  }
+}
+
+input:autofill,
+input:autofill:hover,
+input:autofill:focus {
+  box-shadow: 0 0 0px 1000px wheat inset;
+}
+
+.startScreen-button {
+  padding: 5px;
+  margin: 0 10px;
+  border: 2px solid;
+  border-image: linear-gradient(45deg, wheat, yellow) 1;
+  box-sizing: border-box;
+  transition: 0.5s ease;
+  &:hover {
+    border-image: linear-gradient(45deg, tomato, yellow) 1;
+  }
 }
 
 .main {
@@ -14,33 +128,39 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
 }
 
 .footer {
+  margin: 0 auto 50px;
   width: 50%;
   display: flex;
-  align-items: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-}
-
-.footer-heading {
-  margin: 0;
-  padding: 0;
-  max-width: 50%;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .footer-description {
-  margin: 0;
+  margin: 0 20px;
   padding: 0;
-  max-width: 50%;
+  max-width: 40%;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.footer-heading {
+  margin: 0 0 12px;
+  padding: 0;
+  max-width: 100%;
+  font-size: 30px;
 }
 
 .footer-paragraph {
   margin: 0;
   padding: 0;
-  max-width: 50%;
+  max-width: 100%;
+  font-size: 18px;
+  line-height: 25px;
 }

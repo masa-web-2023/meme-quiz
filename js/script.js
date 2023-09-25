@@ -5,27 +5,36 @@ let questions = [
   { image: "./img/eskimops.jpg", answer: "эскимопс" },
   { image: "./img/kolbasulya.jpg", answer: "колбасуля" },
   { image: "./img/kotleta.jpg", answer: "котлета" },
-  { image: "./img/somolet.jpg", answer: "сомолет" && "сомолёт" },
+  { image: "./img/somolet.jpg", answer: "сомолет" },
   { image: "./img/tigrusha.jpg", answer: "тигруша" },
   { image: "./img/tiramisu.jpg", answer: "тирамисуслик" },
 ];
-
-let currentQuestionIndex = 0;
-let score = 0;
-let attempts = 3;
 
 function resetQuiz() {
   currentQuestionIndex = 0;
   score = 0;
   attempts = 3;
+  console.log("Reset Quiz: ", attempts); // для отладки
   document.getElementById("score").innerText = score;
   document.getElementById("attempts").innerText = attempts;
 }
 
+document
+  .querySelector(".startScreen-input")
+  .addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      startQuiz();
+    }
+  });
+
 function startQuiz() {
+  currentQuestionIndex = 0;
+  score = 0;
+  attempts = 3;
+  console.log("Start Quiz: ", attempts); // для отладки
   document.getElementById("startScreen").style.display = "none";
   document.querySelector(".footer").style.display = "none";
-  document.getElementById("quiz").style.display = "block";
+  document.getElementById("quiz").style.display = "flex";
   showQuestion();
   document
     .getElementById("answerInput")
@@ -56,18 +65,23 @@ function checkAnswer() {
   if (userAnswer === questions[currentQuestionIndex].answer) {
     score += 1;
     document.getElementById("score").innerText = score;
-    attempts += 1;
+    attempts = 3;
     document.getElementById("attempts").innerText = attempts;
     currentQuestionIndex += 1;
     document.getElementById("answerInput").value = "";
     showQuestion();
   } else {
     attempts -= 1;
+    document.querySelector(".quiz-score").classList.add("shake");
+    setTimeout(() => {
+      document.querySelector(".quiz-score").classList.remove("shake");
+    }, 1000);
     if (attempts <= 0) {
+      resetQuiz();
       alert(`Викторина окончена! Ваш счет: ${score}`);
       document.getElementById("quiz").style.display = "none";
-      document.getElementById("startScreen").style.display = "block";
-      resetQuiz();
+      document.getElementById("startScreen").style.display = "flex";
+      document.querySelector(".footer").style.display = "flex";
     } else {
       document.getElementById("attempts").innerText = attempts;
       document.getElementById("answerInput").value = "";
