@@ -10,8 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
   </head>
   <body>
     <main class="main">
@@ -22,11 +21,8 @@
           class="startScreen-input"
           aria-label="Close"
           type="text"
-          id="username"
-        />
-        <button class="startScreen-button" onclick="startQuiz()">
-          Начать викторину
-        </button>
+          id="username" />
+        <button class="startScreen-button" onclick="startQuiz()">Начать викторину</button>
       </div>
       <div id="quiz">
         <img id="questionImage" src="" alt="Вопрос" width="300" />
@@ -37,27 +33,24 @@
             class="quiz-input"
             aria-label="Close"
             type="text"
-            id="answerInput"
-          />
-          <button class="quiz-unput-button" onclick="checkAnswer()">
-            Ответить
-          </button>
+            id="answerInput" />
+          <button class="quiz-unput-button" onclick="checkAnswer()">Ответить</button>
         </div>
         <div class="quiz-score">
           <p>Текущий счет: <span id="score">0</span></p>
           <p>Попытки: <span id="attempts">3</span></p>
         </div>
+        <button class="hint-button" onclick="showHint()">Подсказка</button>
+        <p id="hintText" class="hint-text"></p>
       </div>
       <footer class="footer">
         <div class="footer-description">
           <h2 class="footer-heading">Описание игры:</h2>
           <p class="footer-paragraph">
-            Каждый уровень&nbsp;&mdash; это картинка, на&nbsp;которой изображена
-            комбинация животного и&nbsp;предмета. Разгадай эти два слова,
-            объедини их&nbsp;в&nbsp;одно, и&nbsp;получи ответ! Для примера:
-            на&nbsp;картинке изображена комбинация из&nbsp;рыбы&nbsp;&mdash;
-            окуня и&nbsp;предмета&nbsp;&mdash; шлакоблока. Совместив эти два
-            слова и&nbsp;получается ответ &#171;Шлакоблокунь&#187;!
+            Каждый уровень&nbsp;&mdash; это картинка, на&nbsp;которой изображена комбинация животного и&nbsp;предмета.
+            Разгадай эти два слова, объедини их&nbsp;в&nbsp;одно, и&nbsp;получи ответ! Для примера: на&nbsp;картинке
+            изображена комбинация из&nbsp;рыбы&nbsp;&mdash; окуня и&nbsp;предмета&nbsp;&mdash; шлакоблока. Совместив эти
+            два слова и&nbsp;получается ответ &#171;Шлакоблокунь&#187;!
           </p>
         </div>
         <div class="footer-img-container">
@@ -65,8 +58,7 @@
             class="footer-img"
             src="./img/024_shlakoblokun.png"
             alt="Изображение
-          шкакоблокуня"
-          />
+          шкакоблокуня" />
         </div>
       </footer>
     </main>

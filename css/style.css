@@ -132,6 +132,29 @@ input:autofill:focus {
   justify-content: space-between;
 }
 
+.hint-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border: 2px solid;
+  border-image: linear-gradient(45deg, lightblue, blue) 1;
+  box-sizing: border-box;
+  transition: 0.5s ease;
+  background-color: transparent;
+  cursor: pointer;
+  color: white;
+}
+
+.hint-button:hover {
+  border-image: linear-gradient(45deg, blue, lightblue) 1;
+}
+
+.hint-text {
+  margin-top: 5px;
+  color: #ddd;
+  font-size: 14px;
+  font-style: italic;
+}
+
 .footer {
   margin: 0 auto 50px;
   width: 50%;

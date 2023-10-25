@@ -1,14 +1,19 @@
 let questions = [
-  { image: "./img/dobermango.jpg", answer: "доберманго" },
-  { image: "./img/alpapka.jpg", answer: "альпапка" },
-  { image: "./img/bekon.jpg", answer: "беконь" },
-  { image: "./img/eskimops.jpg", answer: "эскимопс" },
-  { image: "./img/kolbasulya.jpg", answer: "колбасуля" },
-  { image: "./img/kotleta.jpg", answer: "котлета" },
-  { image: "./img/somolet.jpg", answer: "сомолет" },
-  { image: "./img/tigrusha.jpg", answer: "тигруша" },
-  { image: "./img/tiramisu.jpg", answer: "тирамисуслик" },
+  { image: "./img/dobermango.jpg", answer: "доберманго", animal: "доберман" },
+  { image: "./img/alpapka.jpg", answer: "альпапка", animal: "альпака" },
+  { image: "./img/bekon.jpg", answer: "беконь", animal: "конь" },
+  { image: "./img/eskimops.jpg", answer: "эскимопс", animal: "мопс" },
+  { image: "./img/kolbasulya.jpg", answer: "колбасуля", animal: "косуля" },
+  { image: "./img/kotleta.jpg", answer: "котлета", animal: "кот" },
+  { image: "./img/somolet.jpg", answer: "сомолет", animal: "сом" },
+  { image: "./img/tigrusha.jpg", answer: "тигруша", animal: "тигр" },
+  { image: "./img/tiramisu.jpg", answer: "тирамисуслик", animal: "суслик" },
 ];
+
+function showHint() {
+  let animalHint = questions[currentQuestionIndex].animal;
+  document.getElementById("hintText").textContent = `Животное на картинке это ${animalHint}`;
+}
 
 function resetQuiz() {
   currentQuestionIndex = 0;
@@ -19,13 +24,19 @@ function resetQuiz() {
   document.getElementById("attempts").innerText = attempts;
 }
 
-document
-  .querySelector(".startScreen-input")
-  .addEventListener("keydown", function (event) {
+document.querySelector(".startScreen-input").addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    startQuiz();
+  }
+});
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  document.querySelector(".startScreen-input").addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
       startQuiz();
     }
   });
+});
 
 function startQuiz() {
   currentQuestionIndex = 0;
@@ -50,21 +61,19 @@ function enterListener(event) {
 
 function showQuestion() {
   if (currentQuestionIndex < questions.length) {
-    document.getElementById("questionImage").src =
-      questions[currentQuestionIndex].image;
+    document.getElementById("questionImage").src = questions[currentQuestionIndex].image;
+
+    document.getElementById("hintText").textContent = "";
   } else {
     alert(`Викторина окончена! Ваш счет: ${score}`);
     document.getElementById("quiz").style.display = "none";
-    document.getElementById("startScreen").style.display = "block";
+    document.getElementById("startScreen").style.display = "flex";
     resetQuiz();
   }
 }
 
 function checkAnswer() {
-  let userAnswer = document
-    .getElementById("answerInput")
-    .value.trim()
-    .toLowerCase();
+  let userAnswer = document.getElementById("answerInput").value.trim().toLowerCase();
   if (userAnswer === questions[currentQuestionIndex].answer) {
     score += 1;
     document.getElementById("score").innerText = score;
